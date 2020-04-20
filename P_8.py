@@ -74,7 +74,7 @@ def bc4(ya,yb):
 t4=np.linspace(0,np.pi,20)
 y4_a=np.zeros([2,len(t3)])
 y4=inte.solve_bvp(f4,bc4,t4,y4_a)
-t4_p=np.linspace(np.pi/4,np.pi/3,200)
+t4_p=np.linspace(0,np.pi,200)
 plt.subplot(2,2,4,title="4")
 plt.plot(t4_p,y4.sol(t4_p)[0],'r',label="Numerical Solution")
 if y4.success == True:
