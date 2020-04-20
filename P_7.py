@@ -4,6 +4,12 @@ Email:  pruthvi.suryadevara@tifr.res.in
 Solving initial value problem using solve_ivp
 
 """
+"""
+The solution using solve_ivp is accurate as it estimates error at each step and the default 
+values of maximum error are relative error (rtot)=1e-3 and absolute error (atol)=1e-6
+the solver keeps the error less than atol + rtol * abs(y).
+"""
+
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,8 +26,9 @@ def y1_sol(t): return((1/25*np.exp(-2*t))*(1-np.exp(5*t)+(5*t*np.exp(5*t))))
 plt.plot(t1,y1_sol(t1),'b',label="Analytical Solution")
 plt.legend()
 
+
 # Solving the second problem
-# For this problem plotting is only done till 2.99 as the solution is divergent at t=3 
+# For this problem plotting is only done till 2.99 as the solution is undefined at t=3 
 def f2(t,y): return(1-(t-y)**2)
 y2=inte.solve_ivp(f2,[2,3],[1],dense_output=True)
 plt.subplot(2,2,2,title="2")
